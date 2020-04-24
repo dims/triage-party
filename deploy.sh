@@ -28,16 +28,16 @@ env DOCKER_BUILDKIT=1 docker build \
   --build-arg "CFG=${CONFIG_FILE}" \
   --secret "id=github,src=${GITHUB_TOKEN_PATH}" .
 
-#docker push "${IMAGE}" || exit 2
-#
-#readonly token="$(cat ${GITHUB_TOKEN_PATH})"
-#
-#gcloud beta run deploy "${SERVICE_NAME}" \
-#    --project "${PROJECT}" \
-#    --image "${IMAGE}" \
-#    --set-env-vars="GITHUB_TOKEN=${token}" \
-#    --allow-unauthenticated \
-#    --region us-central1 \
-#    --max-instances 2 \
-#    --memory 2048Mi \
-#    --platform managed
+docker push "${IMAGE}" || exit 2
+
+readonly token="$(cat ${GITHUB_TOKEN_PATH})"
+
+gcloud beta run deploy "${SERVICE_NAME}" \
+    --project "${PROJECT}" \
+    --image "${IMAGE}" \
+    --set-env-vars="GITHUB_TOKEN=${token}" \
+    --allow-unauthenticated \
+    --region us-central1 \
+    --max-instances 2 \
+    --memory 2048Mi \
+    --platform managed

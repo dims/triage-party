@@ -39,7 +39,7 @@ COPY third_party /app/third_party/
 COPY $CFG /app/config.yaml
 
 # Bad hack: pre-heat the cache in lieu of persistent storage
-RUN --mount=type=secret,id=github /app/main --github-token-file=/run/secrets/github --config /app/config.yaml --site_dir /app/site --dry_run
+# RUN --mount=type=secret,id=github /app/main --github-token-file=/run/secrets/github --config /app/config.yaml --site_dir /app/site --dry_run
 
 # Run the server at a reasonable refresh rate
 CMD ["/app/main", "--max_list_age=120s", "--max_refresh_age=20m", "--config=/app/config.yaml", "--site_dir=/app/site", "--3p_dir=/app/third_party"]
