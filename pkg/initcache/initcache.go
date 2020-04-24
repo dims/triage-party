@@ -25,7 +25,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/google/go-github/v24/github"
+	"github.com/google/go-github/v31/github"
 	"github.com/patrickmn/go-cache"
 	"golang.org/x/xerrors"
 	"k8s.io/klog"

@@ -17,7 +17,7 @@ package hubbub
 import (
 	"time"
 
-	"github.com/google/go-github/v24/github"
+	"github.com/google/go-github/v31/github"
 )
 
 type Colloquy struct {

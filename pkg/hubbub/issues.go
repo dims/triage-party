@@ -21,7 +21,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/google/go-github/v24/github"
+	"github.com/google/go-github/v31/github"
 	"gopkg.in/yaml.v2"
 	"k8s.io/klog"
 )
@@ -195,14 +195,7 @@ func (h *HubBub) Issues(ctx context.Context, org string, project string, fs []Fi
 			continue
 		}
 
-		// Inconsistency warning: issues use a list of labels, prs a list of label pointers
-		labels := []*github.Label{}
-		for _, l := range i.Labels {
-			l := l
-			labels = append(labels, &l)
-		}
-
-		if !matchItem(i, labels, fs) {
+		if !matchItem(i, i.Labels, fs) {
 			klog.V(1).Infof("#%d did not match item", i.GetNumber())
 			continue
 		}
@@ -213,7 +206,7 @@ func (h *HubBub) Issues(ctx context.Context, org string, project string, fs []Fi
 		}
 
 		co := h.IssueSummary(i, comments, member[i.User.GetLogin()])
-		co.Labels = labels
+		co.Labels = i.Labels
 		if !matchColloquy(co, fs) {
 			klog.V(1).Infof("#%d did not match colloquy", i.GetNumber())
 			continue

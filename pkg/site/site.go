@@ -30,7 +30,7 @@ import (
 	"github.com/google/triage-party/pkg/updater"
 
 	"github.com/dustin/go-humanize"
-	"github.com/google/go-github/v24/github"
+	"github.com/google/go-github/v31/github"
 	"gopkg.in/yaml.v2"
 
 	"k8s.io/klog"

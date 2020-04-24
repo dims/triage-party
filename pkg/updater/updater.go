@@ -24,7 +24,7 @@ import (
 	"github.com/google/triage-party/pkg/hubbub"
 
 	"github.com/golang/glog"
-	"github.com/google/go-github/v24/github"
+	"github.com/google/go-github/v31/github"
 	"k8s.io/klog"
 )
 

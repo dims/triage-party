@@ -28,7 +28,7 @@ import (
 	"github.com/google/triage-party/pkg/hubbub"
 	"github.com/google/triage-party/pkg/initcache"
 
-	"github.com/google/go-github/v24/github"
+	"github.com/google/go-github/v31/github"
 	"golang.org/x/oauth2"
 	"k8s.io/klog"
 )
