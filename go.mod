@@ -14,4 +14,4 @@ require (
 	k8s.io/klog v1.0.0
 )
 
-replace github.com/google/go-github/v31 => github.com/dims/go-github/v31 v31.0.1
+replace github.com/google/go-github/v31 => github.com/dims/go-github/v31 v31.0.4
